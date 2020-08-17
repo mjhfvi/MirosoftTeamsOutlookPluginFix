@@ -1,2 +1,2 @@
 # MirosoftTeamsOutlookPluginFix
-if your Teams Plugin to Outlook is not regestring this is a powershell tool to check the regestry keys and add the key you need
+if your microsoft Teams Plugin to Outlook is not registering this is a PowerShell tool to check the regestry keys and add the key you need
