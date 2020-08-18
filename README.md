@@ -16,3 +16,5 @@ C:\WINDOWS\system32\regsvr32.exe /s /n /i:user "%LOCALAPPDATA%\Microsoft\TeamsMe
 
 
 *GetVersionNumberFromDirectory, replace this value with the number of the local diractory
+
+*tested on office 365 64Bit 
