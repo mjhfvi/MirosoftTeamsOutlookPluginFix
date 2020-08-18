@@ -54,7 +54,7 @@ if ($ProcessTeams) {$ProcessTeams | Stop-Process -Force}
 
 
 ### Get the Version from local folder in LOCALAPPDATA\microsoft\teamsmeetingaddin\
-$teamfolderversion = Get-ChildItem -Path $env:LOCALAPPDATA\microsoft\teamsmeetingaddin\ -Directory -Force -ErrorAction SilentlyContinue | foreach Name | Select-Object -last 1
+$TeamsFolderVersion = Get-ChildItem -Path $env:LOCALAPPDATA\microsoft\teamsmeetingaddin\ -Directory -Force -ErrorAction SilentlyContinue | foreach Name | Select-Object -last 1
 $TeamsFolderVersion
 $FolderPathEnd = "\x64\Microsoft.Teams.AddinLoader.dll"
 
@@ -197,6 +197,13 @@ IF($TestKey11 -eq "True") {'The Key Exist'} Else {
 (New-ItemProperty -Path Registry::"HKCU\Software\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect" -Name "Description" -Value "Microsoft Teams Meeting Add-in for Microsoft Office" -Force | Out-Null)
 (New-ItemProperty -Path Registry::"HKCU\Software\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect" -Name "FriendlyName" -Value "Microsoft Teams Meeting Add-in for Microsoft Office" -Force | Out-Null)
 (New-ItemProperty -Path Registry::"HKCU\Software\Microsoft\Office\Outlook\Addins\TeamsAddin.FastConnect" -Name "LoadBehavior" -Value "3" -PropertyType DWORD -Force | Out-Null)
+}
+
+### Remove .dead file
+$FileDead = "$env:LOCALAPPDATA\Microsoft\TeamsMeetingAddin\$TeamsFolderVersion\.dead"
+if (Test-Path $FileDead)
+{
+Remove-Item $FileDead
 }
 
 
